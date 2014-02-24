@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteRule ^([a-zA-Z0-9]{3})([a-zA-Z0-9]{3})$ index.php?route=screen/show/$1/$2 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
