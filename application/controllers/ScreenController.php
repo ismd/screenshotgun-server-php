@@ -1,40 +1,84 @@
 <?php
 /**
- * Контроллер для работы со скриншотами
+ * Controller for screenshots
  * @author ismd
  */
 
 class ScreenController extends PsController {
 
     /**
-     * Отображает страницу со скриншотом
+     * Shows screenshot page
      * @throws Exception
      */
     public function showAction() {
-        $args = $this->getArgs();
+        $this->view->file_url = $this->parseArgs($this->getArgs());
+    }
 
-        if (count($args) != 2) {
+    /**
+     * Show user's screenshot page
+     * @throws Exception
+     */
+    public function showUserAction() {
+        $this->view->file_url = $this->parseArgs($this->getArgs());
+        $this->view->render('screen/show');
+    }
+
+    /**
+     * Parsing GET-parameters
+     * @param mixed[] $args
+     * @return string Path to the file
+     * @throws Exception
+     */
+    protected function parseArgs($args) {
+        $countArgs = count($args);
+
+        if (2 != $countArgs && 3 != $countArgs) {
             throw new Exception('Bad request');
         }
 
-        list($user, $file) = $args;
+        if (3 == $countArgs) {
+            list($user, $date, $filename) = $args;
+        } else {
+            list($date, $filename) = $args;            
+        }
 
-        $filepath = '/files/' . $user . '/' . $file . '.png';
+        list($day, $month, $year) = explode('-', $date);
 
+        $filepath = '/files/' . (isset($user) ? "$user/" : '') . "$year/$month/$day/$filename.png";
         if (!is_file(APPLICATION_PATH . '/../public' . $filepath)) {
             throw new Exception("File doesn't exists'");
         }
 
-        $this->view->file_url = $filepath;
+        return $filepath;
     }
 
     public function uploadAction() {
         if ($_FILES['image']['error'] != UPLOAD_ERR_OK) {
-            $this->view->json('error');
+            $this->view->json(array(
+                'status' => 'error',
+            ));
             return;
         }
 
-        move_uploaded_file($_FILES['image']['tmp_name'], APPLICATION_PATH . '/../public/files/usr/tmp.png';// . $_FILES['image']['name']);
-        $this->view->json('ok');
+        // Generating filename
+        $path = APPLICATION_PATH . '/../public/files/';
+
+        do {
+            $dt      = new DateTime;
+            $seconds = substr($dt->getTimestamp(), -5);
+
+            $file = $path . $dt->format('Y/m/d') . '/' . $seconds . '.png';
+        } while (is_file($file));
+
+        $dir = dirname($file);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0700, true);
+        }
+
+        move_uploaded_file($_FILES['image']['tmp_name'], $file);
+        $this->view->json(array(
+            'status' => 'ok',
+            'url'    => 'http://' . $_SERVER['HTTP_HOST'] . '/' . $dt->format('d-m-Y') . '/' . $seconds,
+        ));
     }
 }

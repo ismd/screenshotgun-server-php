@@ -1,6 +1,6 @@
 <?php
 /**
- * Главная страница
+ * Main page
  * @author ismd
  */
 
