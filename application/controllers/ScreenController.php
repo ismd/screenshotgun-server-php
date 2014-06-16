@@ -29,7 +29,12 @@ class ScreenController extends PsController {
     }
 
     public function uploadAction() {
-        PsLogger::getInstance()->log($_FILES);
+        if ($_FILES['image']['error'] != UPLOAD_ERR_OK) {
+            $this->view->json('error');
+            return;
+        }
+
+        move_uploaded_file($_FILES['image']['tmp_name'], APPLICATION_PATH . '/../public/u/' . $_FILES['image']['name']);
         $this->view->json('ok');
     }
 }
