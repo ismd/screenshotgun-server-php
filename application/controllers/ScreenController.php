@@ -34,7 +34,7 @@ class ScreenController extends PsController {
             return;
         }
 
-        move_uploaded_file($_FILES['image']['tmp_name'], APPLICATION_PATH . '/../public/u/' . $_FILES['image']['name']);
+        move_uploaded_file($_FILES['image']['tmp_name'], APPLICATION_PATH . '/../public/files/usr/tmp.png';// . $_FILES['image']['name']);
         $this->view->json('ok');
     }
 }
