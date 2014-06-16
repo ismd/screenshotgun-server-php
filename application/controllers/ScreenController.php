@@ -27,4 +27,9 @@ class ScreenController extends PsController {
 
         $this->view->file_url = $filepath;
     }
+
+    public function uploadAction() {
+        PsLogger::getInstance()->log($_FILES);
+        $this->view->json('ok');
+    }
 }
