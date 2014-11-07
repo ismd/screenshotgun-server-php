@@ -3,7 +3,6 @@
  * Controller for screenshots
  * @author ismd
  */
-
 class ScreenController extends PsController {
 
     /**
@@ -11,7 +10,7 @@ class ScreenController extends PsController {
      * @throws Exception
      */
     public function showAction() {
-        $this->view->file_url = $this->parseArgs($this->getArgs());
+        $this->view->fileUrl = $this->parseArgs($this->getArgs());
     }
 
     /**
@@ -19,7 +18,7 @@ class ScreenController extends PsController {
      * @throws Exception
      */
     public function showUserAction() {
-        $this->view->file_url = $this->parseArgs($this->getArgs());
+        $this->view->fileUrl = $this->parseArgs($this->getArgs());
         $this->view->render('screen/show');
     }
 
@@ -53,7 +52,7 @@ class ScreenController extends PsController {
     }
 
     public function uploadAction() {
-        if ($_FILES['image']['error'] != UPLOAD_ERR_OK) {
+        if (UPLOAD_ERR_OK != $_FILES['image']['error']) {
             $this->view->json(array(
                 'status' => 'error',
             ));

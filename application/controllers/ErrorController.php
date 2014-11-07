@@ -2,7 +2,6 @@
 /**
  * @author ismd
  */
-
 class ErrorController extends PsController {
 
     public function indexAction() {
