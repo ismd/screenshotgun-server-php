@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Controller for screenshots
  * @author ismd
@@ -52,32 +53,21 @@ class ScreenController extends PsController {
     }
 
     public function uploadAction() {
+        if (!$this->getRequest()->isPost()) {
+            //throw new Exception('Bad request');
+        }
+
         if (UPLOAD_ERR_OK != $_FILES['image']['error']) {
-            $this->view->json(array(
+            $this->view->json([
                 'status' => 'error',
-            ));
-            return;
+            ]);
         }
 
-        // Generating filename
-        $path = APPLICATION_PATH . '/../public/files/';
+        $path = (new Screenshot)->save($_FILES['image']['tmp_name']);
 
-        do {
-            $dt      = new DateTime;
-            $seconds = substr($dt->getTimestamp(), -5);
-
-            $file = $path . $dt->format('Y/m/d') . '/' . $seconds . '.png';
-        } while (is_file($file));
-
-        $dir = dirname($file);
-        if (!is_dir($dir)) {
-            mkdir($dir, 0700, true);
-        }
-
-        move_uploaded_file($_FILES['image']['tmp_name'], $file);
-        $this->view->json(array(
+        $this->view->json([
             'status' => 'ok',
-            'url'    => 'http://' . $_SERVER['HTTP_HOST'] . '/' . $dt->format('d-m-Y') . '/' . $seconds,
-        ));
+            'url'    => $this->getHelper('server')->url() . $path,
+        ]);
     }
 }
