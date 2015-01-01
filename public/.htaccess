@@ -1,7 +1,7 @@
 RewriteEngine on
 
-RewriteRule ^(\d{2}\-\d{2}\-\d{4})/(\d{5})$ index.php?route=screen/show/$1/$2 [L]
-RewriteRule ^(.+)/(\d{2}\-\d{2}\-\d{4})/(\d{5})$ index.php?route=screen/show-user/$1/$2/$3 [L]
+RewriteRule ^(\d{2}\-\d{2}\-\d{4})/(.+)$ index.php?route=screen/show/$1/$2 [L]
+RewriteRule ^(.+)/(\d{2}\-\d{2}\-\d{4})/(.+)$ index.php?route=screen/show-user/$1/$2/$3 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
