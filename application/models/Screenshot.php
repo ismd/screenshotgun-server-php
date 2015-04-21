@@ -10,13 +10,19 @@ class Screenshot extends PsModel {
      * Saves file to public directory
      * @param string $filepath
      * @return string Relative path (url)
+     * @throws Exception
      */
     public function save($filepath) {
         $dt    = new DateTime;
         $path  = APPLICATION_PATH . '/../public/files/';
         $path .= $dt->format('Y/m/d');
 
+        $i = 0;
         do {
+            if (50 == $i++) {
+                throw new Exception("Can't create file");
+            }
+
             $id   = $this->alphaID(microtime(true), false, false, PsConfig::getInstance()->main->pass_key);
             $file = $path . '/' . $id . '.png';
         } while (is_file($file));

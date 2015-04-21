@@ -39,7 +39,7 @@ class ScreenController extends PsController {
         if (3 == $countArgs) {
             list($user, $date, $filename) = $args;
         } else {
-            list($date, $filename) = $args;            
+            list($date, $filename) = $args;
         }
 
         list($day, $month, $year) = explode('-', $date);
@@ -54,8 +54,13 @@ class ScreenController extends PsController {
 
     public function uploadAction() {
         if (!$this->getRequest()->isPost()) {
-            //throw new Exception('Bad request');
+            throw new Exception('Bad request');
         }
+
+        PsLogger::getInstance()->log([
+            'action' => 'Uploading',
+            'file'   => $_FILES['image'],
+        ]);
 
         if (UPLOAD_ERR_OK != $_FILES['image']['error']) {
             $this->view->json([
