@@ -5,3 +5,6 @@ RewriteRule ^(.+)/(\d{2}\-\d{2}\-\d{4})/(.+)$ index.php?route=screen/show-user/$
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
+
+php_value upload_max_filesize 5M
+php_value post_max_size 5M
