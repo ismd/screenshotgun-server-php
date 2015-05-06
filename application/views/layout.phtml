@@ -3,9 +3,41 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Screenshotgun</title>
+        <title>ScreenShotGun</title>
+
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic" rel="stylesheet" />
+        <link href="/css/style.css" rel="stylesheet" />
+
+        <script src="/js/jquery-2.1.4.min.js"></script>
+        <script src="/js/main.js"></script>
     </head>
     <body>
-        <?php $this->content(); ?>
+        <div class="js-background background">
+            <div class="page-content">
+                <div class="header">
+                    Download the Alpha Version for <a href="/dist/screenshotgun.exe">Windows</a> or for <a href="/dist/screenshotgun">Linux</a>
+                </div>
+
+                <div class="page-<?= $this->_registry->router->getController(); ?>-<?= $this->_registry->router->getAction(); ?>">
+                    <?php $this->content(); ?>
+                </div>
+
+                <div class="footer clearfix">
+                    <div class="bottom-description">
+                        Just for shooting screenshots and nothing more
+                    </div>
+
+                    <div class="mail-and-donate">
+                        &copy;
+                        ScreenShotGun <?= (new DateTime)->format('Y'); ?>.
+                        <a href="javascript:void(0)">Mail us</a>
+                        or
+                        <a href="javascript:void(0)">buy a beer</a>.
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,0 +1,39 @@
+@images: '../images';
+
+.clearfix:before,
+.clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clear {
+    clear: both;
+}
+
+.size(@width: auto, @height: auto) {
+    display: block;
+    width: @width;
+    height: @height;
+}
+
+.transition(@value: all 1s) {
+    -webkit-transition: @value;
+       -moz-transition: @value;
+            transition: @value;
+}
+
+.transform(@value) {
+    -webkit-transform: @value; /* Chrome, Safari, Opera */
+       -moz-transform: @value;
+        -ms-transform: @value; /* IE 9 */
+         -o-transform: @value;
+            transform: @value;
+}
