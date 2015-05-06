@@ -8,95 +8,100 @@ a {
         text-decoration: none;
     }
 }
+
 html,
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #fff;
     height: 100%;
+}
 
-    .page-Index-index {
-        .background {
-            position: relative;
-            overflow: hidden;
-            height: 100%;
+.page-Index-index {
+    .background {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
 
-            &:before {
-                position: absolute;
-                top: -30%;
-                left: -80%;
-                z-index: -1;
-                .size(200%, 250%);
-                background-image: linear-gradient(to bottom, #ea394a 50%, #1744ca 50%);
-                .transition(background-position 1s);
-                background-size: 100% 200%;
-                .transform(rotate(-45deg));
-                content: '';
-            }
-
-            &.alt-background:before {
-                background-position: 0 -100%;
-            }
-
-            &.reverse-background:before {
-                background-image: linear-gradient(to bottom, #1744ca 50%, #ea394a 50%);
-            }
-
-            &.disable-transition:before {
-                transition: none;
-            }
+        &:before {
+            position: absolute;
+            top: -30%;
+            left: -80%;
+            z-index: -1;
+            .size(230%, 250%);
+            background-image: linear-gradient(to bottom, #ea394a 50%, #1744ca 50%);
+            .transition(background-position 1s);
+            background-size: 100% 200%;
+            .transform(rotate(-45deg));
+            content: '';
         }
 
-        .header,
-        .footer {
-            font-weight: 300;
+        &.alt-background:before {
+            background-position: 0 -100%;
         }
 
-        .header {
-            padding: 42px 0;
+        &.reverse-background:before {
+            background-image: linear-gradient(to bottom, #1744ca 50%, #ea394a 50%);
         }
 
-        .footer {
-            padding: 43px 0;
-
-            .bottom-description {
-                float: left;
-            }
-
-            .mail-and-donate {
-                float: right;
-            }
+        &.disable-transition:before {
+            transition: none;
         }
+    }
 
-        .page-content {
-            width: 1080px;
-            margin: 0 auto;
-        }
+    .header,
+    .footer {
+        font-weight: 300;
+    }
 
-        .rect {
-            border: 10px solid #fff;
-            margin: 0 auto;
-            .size(840px, 548px);
-        }
+    .header {
+        padding: 42px 0;
+    }
 
-        .logo {
-            background: url('@{images}/logo.png') 0 0 no-repeat;
-            .size(337px, 244px);
-            margin-bottom: 60px;
-        }
+    .footer {
+        padding: 43px 0;
 
-        .app {
-            background: url('@{images}/main-app.png') 0 0 no-repeat;
-            .size(54px, 375px);
-            float: right;
-            margin-top: 90px;
-            margin-right: 98px;
-        }
-
-        .logo-left {
+        .bottom-description {
             float: left;
-            padding: 100px;
-            padding-top: 106px;
         }
+
+        .mail-and-donate {
+            float: right;
+        }
+    }
+
+    .page-content {
+        .size(1080px, 770px);
+        width: 1080px;
+        margin: 0 auto;
+        margin-top: -385px;
+        position: relative;
+        top: 50%;
+    }
+
+    .rect {
+        border: 10px solid #fff;
+        margin: 0 auto;
+        .size(840px, 548px);
+    }
+
+    .logo {
+        background: url('@{images}/logo.png') 0 0 no-repeat;
+        .size(337px, 244px);
+        margin-bottom: 60px;
+    }
+
+    .app {
+        background: url('@{images}/main-app.png') 0 0 no-repeat;
+        .size(54px, 375px);
+        float: right;
+        margin-top: 90px;
+        margin-right: 98px;
+    }
+
+    .logo-left {
+        float: left;
+        padding: 100px;
+        padding-top: 106px;
     }
 }
