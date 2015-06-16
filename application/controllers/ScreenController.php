@@ -68,7 +68,13 @@ class ScreenController extends PsController {
             ]);
         }
 
-        $path = (new Screenshot)->save($_FILES['image']['tmp_name']);
+        try {
+            $path = (new Screenshot)->save($_FILES['image']['tmp_name']);
+        } catch (Exception $e) {
+            $this->view->json([
+                'status' => 'error',
+            ]);
+        }
 
         $this->view->json([
             'status' => 'ok',

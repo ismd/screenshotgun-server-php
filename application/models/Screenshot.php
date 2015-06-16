@@ -19,13 +19,20 @@ class Screenshot extends PsModel {
 
         $i = 0;
         do {
-            if (50 == $i++) {
+            if (50 == ++$i) {
                 throw new Exception("Can't create file");
             }
 
-            $id   = $this->alphaID(microtime(true), false, false, PsConfig::getInstance()->main->pass_key);
+            $id   = $this->alphaID($this->generateNumber(), false, false, PsConfig::getInstance()->main->pass_key);
             $file = $path . '/' . $id . '.png';
         } while (is_file($file));
+
+        if ($i > 1) {
+            PsLogger::getInstance()->log([
+                'error'    => 'More than 1 attempt needed',
+                'attempts' => $i,
+            ]);
+        }
 
         if (!is_dir($path)) {
             mkdir($path, 0700, true);
@@ -33,6 +40,19 @@ class Screenshot extends PsModel {
 
         move_uploaded_file($filepath, $file);
         return '/' . $dt->format('d-m-Y') . '/' . $id;
+    }
+
+    /**
+     * Generates id
+     * @return int
+     */
+    protected function generateNumber() {
+        $microtime  = microtime(true);
+        $microtime  = (int)str_replace('.', '', $microtime);
+        $microtime /= rand(10000, 100000);
+        $microtime  = (int)$microtime;
+
+        return $microtime;
     }
 
     /**
