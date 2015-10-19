@@ -1,14 +1,17 @@
 $(function() {
-    var $background = $('.js-background');
-
     setInterval(function() {
-        $background.removeClass('disable-transition');
-        $background.toggleClass('alt-background');
+        var $background       = $('.js-background:not(.hidden)'),
+            $hiddenBackground = $('.js-background.hidden');
+
+        $hiddenBackground.removeClass('disable-transition');
+        $hiddenBackground.removeClass('hidden');
 
         setTimeout(function() {
-            $background.toggleClass('reverse-background');
-            $background.toggleClass('alt-background');
             $background.addClass('disable-transition');
+            $background.addClass('hidden');
+
+            $background.css('z-index', 2);
+            $hiddenBackground.css('z-index', 1);
         }, 3000);
     }, 6000);
 });

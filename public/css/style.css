@@ -1,1 +1,113 @@
-@import "reset.min.css";.clear,.clearfix:after{clear:both}a,body,html{color:#fff}.clearfix:after,.clearfix:before{content:'';display:table}.clearfix{zoom:1}a:hover{text-decoration:none}body,html{font-family:Roboto,sans-serif;font-size:16px;height:100%;line-height:1.5em}.page-Index-index .background{position:relative;overflow:hidden;height:100%}.page-Index-index .background:before{position:absolute;top:-30%;left:-80%;z-index:-1;display:block;width:230%;height:250%;background-image:linear-gradient(to bottom,#ea394a 50%,#1744ca 50%);-webkit-transition:background-position 1s;-moz-transition:background-position 1s;transition:background-position 1s;background-size:100% 200%;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);content:''}.page-Index-index .background.alt-background:before{background-position:0 -100%}.page-Index-index .background.reverse-background:before{background-image:linear-gradient(to bottom,#1744ca 50%,#ea394a 50%)}.page-Index-index .background.disable-transition:before{transition:none}.page-Index-index .footer,.page-Index-index .header{font-weight:300}.page-Index-index .header{padding:37px 0}.page-Index-index .footer{padding:39px 0}.page-Index-index .footer .bottom-description{float:left}.page-Index-index .footer .mail-and-donate{float:right}.page-Index-index .page-content{display:block;height:770px;width:1080px;margin:-385px auto 0;position:relative;top:50%}.page-Index-index .rect{border:10px solid #fff;margin:0 auto;display:block;width:840px;height:548px}.page-Index-index .logo{background:url(../images/logo.png) no-repeat;display:block;width:337px;height:244px;margin-bottom:56px}.page-Index-index .app{background:url(../images/main-app.png) no-repeat;display:block;width:54px;height:375px;float:right;margin-top:90px;margin-right:98px}.page-Index-index .logo-left{float:left;padding:106px 100px 100px}.page-Error-index{color:#000!important}
+@import "reset.min.css";
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+.clear {
+  clear: both;
+}
+a {
+  color: #fff;
+}
+a:hover {
+  text-decoration: none;
+}
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  height: 100%;
+  line-height: 1.5em;
+}
+.page-Index-index {
+  overflow: hidden;
+}
+.page-Index-index .background {
+  position: absolute;
+  top: -50%;
+  left: -15%;
+  display: block;
+  width: 150%;
+  height: 250%;
+  transition: all 2s;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+.page-Index-index .background.red {
+  background-color: #ea394a;
+}
+.page-Index-index .background.blue {
+  background-color: #1744ca;
+}
+.page-Index-index .background.hidden {
+  top: -300%;
+  left: -115%;
+}
+.page-Index-index .background.disable-transition {
+  transition: none;
+}
+.page-Index-index .header,
+.page-Index-index .footer {
+  font-weight: 300;
+}
+.page-Index-index .header {
+  padding: 37px 0;
+}
+.page-Index-index .footer {
+  padding: 39px 0;
+}
+.page-Index-index .footer .bottom-description {
+  float: left;
+}
+.page-Index-index .footer .mail-and-donate {
+  float: right;
+}
+.page-Index-index .page-content {
+  display: block;
+  height: 770px;
+  width: 1080px;
+  margin: 0 auto;
+  margin-top: -385px;
+  position: relative;
+  z-index: 5;
+  top: 50%;
+}
+.page-Index-index .rect {
+  border: 10px solid #fff;
+  margin: 0 auto;
+  display: block;
+  width: 840px;
+  height: 548px;
+}
+.page-Index-index .logo {
+  background: url('../images/logo.png') 0 0 no-repeat;
+  display: block;
+  width: 337px;
+  height: 244px;
+  margin-bottom: 56px;
+}
+.page-Index-index .app {
+  background: url('../images/main-app.png') 0 0 no-repeat;
+  display: block;
+  width: 54px;
+  height: 375px;
+  float: right;
+  margin-top: 90px;
+  margin-right: 98px;
+}
+.page-Index-index .logo-left {
+  float: left;
+  padding: 100px;
+  padding-top: 106px;
+}
+.page-Error-index {
+  color: #000 !important;
+}

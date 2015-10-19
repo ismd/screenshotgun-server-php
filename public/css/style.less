@@ -19,33 +19,31 @@ body {
 }
 
 .page-Index-index {
+    overflow: hidden;
+
     .background {
-        position: relative;
-        overflow: hidden;
-        height: 100%;
+        position: absolute;
+        top: -50%;
+        left: -15%;
+        .size(150%, 250%);
+        transition: all 2s;
+        transform: rotate(45deg);
+        z-index: 1;
 
-        &:before {
-            position: absolute;
-            top: -30%;
-            left: -80%;
-            z-index: -1;
-            .size(230%, 250%);
-            background-image: linear-gradient(to bottom, #ea394a 50%, #1744ca 50%);
-            .transition(background-position 1s);
-            background-size: 100% 200%;
-            .transform(rotate(-45deg));
-            content: '';
+        &.red {
+            background-color: #ea394a;
         }
 
-        &.alt-background:before {
-            background-position: 0 -100%;
+        &.blue {
+            background-color: #1744ca;
         }
 
-        &.reverse-background:before {
-            background-image: linear-gradient(to bottom, #1744ca 50%, #ea394a 50%);
+        &.hidden {
+            top: -300%;
+            left: -115%;
         }
 
-        &.disable-transition:before {
+        &.disable-transition {
             transition: none;
         }
     }
@@ -77,6 +75,7 @@ body {
         margin: 0 auto;
         margin-top: -385px;
         position: relative;
+        z-index: 5;
         top: 50%;
     }
 

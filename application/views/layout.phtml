@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ScreenShotGun</title>
+        <title>Screenshotgun</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1" />
 
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic" rel="stylesheet" />
         <link href="/css/style.css" rel="stylesheet" />
@@ -13,6 +15,6 @@
     </head>
 
     <body class="page-<?= $this->_registry->router->getController(); ?>-<?= $this->_registry->router->getAction(); ?>">
-        <?php $this->content(); ?>
+        <? $this->content(); ?>
     </body>
 </html>
