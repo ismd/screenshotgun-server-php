@@ -2,57 +2,9 @@
 
 class DateFormatterViewHelper extends PsViewHelper {
 
+    private $months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
     public function showPageFormat(DateTime $dateTime) {
-        switch ($dateTime->format('n')) {
-            case 1:
-                $month = 'января';
-                break;
-
-            case 2:
-                $month = 'февраля';
-                break;
-
-            case 3:
-                $month = 'марта';
-                break;
-
-            case 4:
-                $month = 'апреля';
-                break;
-
-            case 5:
-                $month = 'мая';
-                break;
-
-            case 6:
-                $month = 'июня';
-                break;
-
-            case 7:
-                $month = 'июля';
-                break;
-
-            case 8:
-                $month = 'августа';
-                break;
-
-            case 9:
-                $month = 'сентября';
-                break;
-
-            case 10:
-                $month = 'октября';
-                break;
-
-            case 11:
-                $month = 'ноября';
-                break;
-
-            case 12:
-                $month = 'декабря';
-                break;
-        }
-
-        return $dateTime->format('d ' . $month . ' Y');
+        return $dateTime->format('d ' . $this->months[$dateTime->format('n') - 1] . ' Y');
     }
 }
