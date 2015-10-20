@@ -3,5 +3,15 @@
 </div>
 
 <div class="image">
-    <img src="<?= $this->fileUrl; ?>" />
+    <a href="javascript:void(0);" class="js-open-popup" title="Открыть в полном размере">
+        <img src="<?= $this->fileUrl; ?>" />
+    </a>
+</div>
+
+<div class="js-popup popup">
+    <span class="helper"></span>
+
+    <a href="javascript:void(0);" class="js-close-popup">
+        <img src="<?= $this->fileUrl; ?>" />
+    </a>
 </div>

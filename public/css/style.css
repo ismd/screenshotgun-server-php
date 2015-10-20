@@ -710,12 +710,34 @@ body {
 }
 .page-Screen-show .image {
   width: 100%;
+  padding: 20px;
   text-align: center;
+  box-sizing: border-box;
 }
 .page-Screen-show .image img {
-  display: inline-block;
-  margin: 20px;
+  max-width: 100%;
   box-shadow: 0 0 20px #333;
+}
+.page-Screen-show .popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 10px 0 6px;
+  background: #999;
+  text-align: center;
+  overflow: auto;
+  white-space: nowrap;
+}
+.page-Screen-show .popup .helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.page-Screen-show .popup img {
+  vertical-align: middle;
 }
 .page-Error-index {
   padding-top: 70px;

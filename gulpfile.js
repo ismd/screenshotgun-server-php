@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     environment = process.env.NODE_ENV || 'development';
 
 var less = require('gulp-less'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify');
 
 var LessPluginCleanCSS = require('less-plugin-clean-css'),
     LessPluginAutoPrefix = require('less-plugin-autoprefix'),
@@ -21,7 +22,7 @@ gulp.task('less', function () {
         './less/style.less'
     ];
 
-    gulp.src(files)
+    return gulp.src(files)
         .pipe(less({
             plugins: 'production' == environment ? [autoprefix, cleancss] : [autoprefix]
         }))
@@ -30,41 +31,29 @@ gulp.task('less', function () {
 });
 
 // JavaScript
-//gulp.task('js', function() {
-//    var jsFiles = [
-//        'bower_components/jquery/dist/jquery.js',
-//        'bower_components/angular/angular.js',
-//        'bower_components/angular-route/angular-route.js',
-//        'bower_components/bootstrap/dist/js/bootstrap.js',
-//        'bower_components/bootstrap-select/dist/js/bootstrap-select.js',
-//        'bower_components/Chart.js/Chart.js',
-//        'bower_components/jquery-ui/jquery-ui.js',
-//        'bower_components/jquery-ui/ui/i18n/datepicker-ru.js',
-//        'bower_components/angular-ui-date/src/date.js',
-//        'app/init.js',
-//        'app/services/**/*.js',
-//        'app/directives/**/*.js',
-//        'app/controllers/**/*.js'
-//    ];
-//
-//    var stream = gulp.src(jsFiles)
-//        .pipe(concat('app.js'))
-//        .pipe(chmod(666));
-//
-//    if ('production' == environment) {
-//        stream = stream.pipe(uglify());
-//    }
-//
-//    return stream.pipe(gulp.dest('../public/js'));
-//});
+gulp.task('js', function() {
+    var files = [
+        'bower_components/jquery/dist/jquery.min.js',
+        './js/**/*.js'
+    ];
+
+    var stream = gulp.src(files)
+        .pipe(concat('app.js'));
+
+    if ('production' == environment) {
+        stream = stream.pipe(uglify());
+    }
+
+    return stream.pipe(gulp.dest('./public/js'));
+});
 
 // Watch
 gulp.task('watch', function() {
     gulp.watch('./less/**/*.less', ['less']);
-    //gulp.watch('app/**/*.js', ['js']);
+    gulp.watch('./js/**/*.js', ['js']);
 });
 
-var tasks = ['less'];
+var tasks = ['less', 'js'];
 
 if ('development' == environment) {
     tasks.push('watch');
