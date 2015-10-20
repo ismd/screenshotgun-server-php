@@ -1,17 +1,19 @@
-<div class="header">
-    Скриншот загружен <?= $this->getHelper('dateFormatter')->showPageFormat($this->date); ?>
-</div>
+<div class="js-main-content">
+    <div class="header">
+        Скриншот загружен <?= $this->getHelper('dateFormatter')->showPageFormat($this->date); ?>
+    </div>
 
-<div class="image">
-    <a href="javascript:void(0);" class="js-open-popup" title="Открыть в полном размере">
-        <img src="<?= $this->fileUrl; ?>" />
-    </a>
+    <div class="image">
+        <a href="javascript:void(0);" class="js-toggle-popup toggle-popup" title="Открыть в полном размере">
+            <img src="<?= $this->fileUrl; ?>" />
+        </a>
+    </div>
 </div>
 
 <div class="js-popup popup">
     <span class="helper"></span>
 
-    <a href="javascript:void(0);" class="js-close-popup">
+    <a href="javascript:void(0);" class="js-toggle-popup toggle-popup">
         <img src="<?= $this->fileUrl; ?>" />
     </a>
 </div>

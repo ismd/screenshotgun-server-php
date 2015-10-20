@@ -2,7 +2,7 @@
   .header {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px 20px;
   }
 
   .image {
@@ -10,6 +10,10 @@
     padding: 20px;
     text-align: center;
     box-sizing: border-box;
+
+    .toggle-popup {
+      cursor: zoom-in;
+    }
 
     img {
       max-width: 100%;
@@ -24,7 +28,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0 10px 0 6px;
+    padding: 10px 10px 10px 6px;
     background: #999;
     text-align: center;
     overflow: auto;
@@ -36,8 +40,13 @@
       vertical-align: middle;
     }
 
+    .toggle-popup {
+      cursor: zoom-out;
+    }
+
     img {
       vertical-align: middle;
+      box-shadow: 0 0 20px #333;
     }
   }
 }

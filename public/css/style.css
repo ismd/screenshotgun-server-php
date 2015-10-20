@@ -706,13 +706,17 @@ body {
 .page-Screen-show .header {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px 20px;
 }
 .page-Screen-show .image {
   width: 100%;
   padding: 20px;
   text-align: center;
   box-sizing: border-box;
+}
+.page-Screen-show .image .toggle-popup {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
 }
 .page-Screen-show .image img {
   max-width: 100%;
@@ -725,7 +729,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 0 10px 0 6px;
+  padding: 10px 10px 10px 6px;
   background: #999;
   text-align: center;
   overflow: auto;
@@ -736,8 +740,13 @@ body {
   height: 100%;
   vertical-align: middle;
 }
+.page-Screen-show .popup .toggle-popup {
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
+}
 .page-Screen-show .popup img {
   vertical-align: middle;
+  box-shadow: 0 0 20px #333;
 }
 .page-Error-index {
   padding-top: 70px;

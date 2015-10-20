@@ -1,9 +1,6 @@
 $(function() {
-    $('.js-open-popup').click(function() {
-        $('.js-popup').show();
-    });
-
-    $('.js-close-popup').click(function() {
-        $('.js-popup').hide();
+    $('.js-toggle-popup').click(function() {
+        $('.js-main-content').toggle();
+        $('.js-popup').toggle();
     });
 });
