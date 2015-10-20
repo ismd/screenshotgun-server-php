@@ -16,6 +16,7 @@ class Screenshot extends PsModel {
         $dt    = new DateTime;
         $path  = APPLICATION_PATH . '/../public/files/';
         $path .= $dt->format('Y/m/d');
+        $path  = realpath($path);
 
         $i = 0;
         do {

@@ -583,9 +583,7 @@ html,
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  color: #fff;
-  height: 100%;
-  line-height: 1.5em;
+  color: #333;
 }
 @-webkit-keyframes backgroundMove {
   0% {
@@ -615,8 +613,8 @@ body {
 }
 .page-Index-index {
   position: relative;
-  height: auto;
   background: #ea394a;
+  color: #fff;
 }
 .page-Index-index .background-wrapper {
   position: absolute;
@@ -704,6 +702,24 @@ body {
     width: 860px;
   }
 }
+.page-Screen-show {
+  background: #eee;
+}
+.page-Screen-show .header {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.page-Screen-show .image {
+  width: 100%;
+  text-align: center;
+}
+.page-Screen-show .image img {
+  display: inline-block;
+  margin: 20px;
+  box-shadow: 0 0 20px #333;
+}
 .page-Error-index {
-  color: #000 !important;
+  padding-top: 100px;
+  text-align: center;
 }

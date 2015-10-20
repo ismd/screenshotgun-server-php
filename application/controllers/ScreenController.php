@@ -11,7 +11,7 @@ class ScreenController extends PsController {
      * @throws Exception
      */
     public function showAction() {
-        $this->view->fileUrl = $this->parseArgs($this->getArgs());
+        $this->processShow();
     }
 
     /**
@@ -19,37 +19,8 @@ class ScreenController extends PsController {
      * @throws Exception
      */
     public function showUserAction() {
-        $this->view->fileUrl = $this->parseArgs($this->getArgs());
+        $this->processShow();
         $this->view->render('screen/show');
-    }
-
-    /**
-     * Parsing GET-parameters
-     * @param mixed[] $args
-     * @return string Path to the file
-     * @throws Exception
-     */
-    protected function parseArgs($args) {
-        $countArgs = count($args);
-
-        if (2 != $countArgs && 3 != $countArgs) {
-            throw new Exception('Bad request');
-        }
-
-        if (3 == $countArgs) {
-            list($user, $date, $filename) = $args;
-        } else {
-            list($date, $filename) = $args;
-        }
-
-        list($day, $month, $year) = explode('-', $date);
-
-        $filepath = '/files/' . (isset($user) ? "$user/" : '') . "$year/$month/$day/$filename.png";
-        if (!is_file(APPLICATION_PATH . '/../public' . $filepath)) {
-            throw new Exception("File doesn't exists'");
-        }
-
-        return $filepath;
     }
 
     public function uploadAction() {
@@ -80,5 +51,51 @@ class ScreenController extends PsController {
             'status' => 'ok',
             'url'    => $this->getHelper('server')->url() . $path,
         ]);
+    }
+
+    /**
+     * Sets view variables
+     * @throws Exception
+     */
+    protected function processShow() {
+        $args = $this->parseArgs($this->getArgs());
+
+        $filepath = '/files/' . (!is_null($args['user']) ? $args['user'] . '/' : '')
+            . $args['date']->format('Y/m/d') . '/' . $args['filename'] . '.png';
+
+        if (!is_file(realpath(APPLICATION_PATH . '/../public' . $filepath))) {
+            throw new Exception("File doesn't exists'");
+        }
+
+        $this->view->date = $args['date'];
+        $this->view->fileUrl = $filepath;
+    }
+
+    /**
+     * Parsing GET-parameters
+     * @param mixed[] $args
+     * @return mixed[]
+     * @throws Exception
+     */
+    protected function parseArgs($args) {
+        $countArgs = count($args);
+
+        if (2 != $countArgs && 3 != $countArgs) {
+            throw new Exception('Bad request');
+        }
+
+        if (3 == $countArgs) {
+            list($user, $date, $filename) = $args;
+        } else {
+            list($date, $filename) = $args;
+        }
+
+        list($day, $month, $year) = explode('-', $date);
+
+        return [
+            'date' => new DateTime(implode('-', [$year, $month, $day])),
+            'user' => isset($user) ? $user : null,
+            'filename' => $filename,
+        ];
     }
 }
