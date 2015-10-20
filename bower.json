@@ -1,0 +1,26 @@
+{
+  "name": "screenshotgun-server",
+  "description": "Open screenshoter",
+  "authors": [
+    "Vladimir Kosteley"
+  ],
+  "keywords": [
+    "screenshoter"
+  ],
+  "homepage": "https://github.com/ismd/screenshotgun-server",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "html5-boilerplate": "~5.2.0"
+  }
+}

@@ -1,0 +1,91 @@
+@keyframes backgroundMove {
+  0% {
+    left: -250%;
+  }
+
+  10%, 50% {
+    left: -50%;
+  }
+
+  60%, 100% {
+    left: 150%;
+  }
+}
+
+.page-Index-index {
+  background: #ea394a;
+  overflow: hidden;
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: -250%;
+    .size(200%, 100%);
+    z-index: 1;
+    background-color: #1744ca;
+    animation: backgroundMove 10s linear infinite 5s;
+    transform: skewX(-45deg) translate3d(0, 0, 0);
+    perspective: 1000px;
+    backface-visibility: hidden;
+  }
+
+  .header,
+  .footer {
+    font-weight: 300;
+  }
+
+  .header {
+    padding: 37px 0;
+  }
+
+  .footer {
+    padding: 39px 0;
+
+    .bottom-description {
+      float: left;
+    }
+
+    .mail-and-donate {
+      float: right;
+    }
+  }
+
+  .page-content {
+    .size(1080px, 770px);
+    margin: 0 auto;
+    margin-top: -385px;
+    position: relative;
+    z-index: 5;
+    top: 50%;
+  }
+
+  .rect {
+    border: 10px solid #fff;
+    margin: 0 auto;
+    .size(840px, 548px);
+  }
+
+  .logo {
+    background: url('@{images}/logo.png') 0 0 no-repeat;
+    .size(337px, 244px);
+    margin-bottom: 56px;
+  }
+
+  .app {
+    background: url('@{images}/main-app.png') 0 0 no-repeat;
+    .size(54px, 375px);
+    float: right;
+    margin-top: 90px;
+    margin-right: 98px;
+  }
+
+  .logo-left {
+    float: left;
+    padding: 100px;
+    padding-top: 106px;
+  }
+
+  @media (max-width: 1150px) {
+
+  }
+}

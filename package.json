@@ -1,0 +1,25 @@
+{
+  "name": "screenshotgun-server",
+  "version": "0.1.0",
+  "description": "Open screenshoter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://ismd@github.com/ismd/screenshotgun-server.git"
+  },
+  "keywords": [
+    "screenshoter"
+  ],
+  "author": "Vladimir Kosteley",
+  "bugs": {
+    "url": "https://github.com/ismd/screenshotgun-server/issues"
+  },
+  "homepage": "https://github.com/ismd/screenshotgun-server#readme",
+  "dependencies": {
+    "bower": "^1.6.3",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.0.3",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1"
+  }
+}

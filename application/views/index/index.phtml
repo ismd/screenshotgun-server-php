@@ -1,5 +1,4 @@
-<div class="js-background background red"></div>
-<div class="js-background background blue hidden"></div>
+<div class="background"></div>
 
 <div class="page-content">
     <div class="header">
@@ -7,7 +6,7 @@
     </div>
 
     <div class="content">
-        <div class="rect">
+        <div class="clearfix rect">
             <div class="logo-left">
                 <div class="logo"></div>
 
@@ -16,11 +15,10 @@
             </div>
 
             <div class="app"></div>
-            <div class="clear"></div>
         </div>
     </div>
 
-    <div class="footer clearfix">
+    <div class="clearfix footer">
         <div class="bottom-description">
             Just for shooting screenshots and nothing more
         </div>
@@ -28,12 +26,10 @@
         <div class="mail-and-donate">
             &copy;
             <?= (new DateTime)->format('Y'); ?>
-            ScreenShotGun.
+            Screenshotgun.
             <a href="mailto:ismd@screenshotgun.com">Mail us</a>
             <!--or
             <a href="javascript:void(0)">buy a beer</a>.-->
         </div>
-
-        <div class="clear"></div>
     </div>
 </div>
