@@ -1,21 +1,21 @@
-<div class="background"></div>
+<div class="background-wrapper">
+    <div class="background"></div>
+</div>
 
 <div class="page-content">
     <div class="header">
         Download the Alpha Version for <a href="/dist/screenshotgun.exe">Windows</a> or for <a href="/dist/screenshotgun_amd64.deb">Linux</a>
     </div>
 
-    <div class="content">
-        <div class="clearfix rect">
-            <div class="logo-left">
-                <div class="logo"></div>
+    <div class="rect">
+        <div class="logo"></div>
 
-                Coming soon!<br />
-                Open screenshoter with cloud support and server part.
-            </div>
-
-            <div class="app"></div>
+        <div class="text-info">
+            Coming soon!<br />
+            Open screenshoter with cloud support and server part.
         </div>
+
+        <div class="app"></div>
     </div>
 
     <div class="clearfix footer">
@@ -25,8 +25,8 @@
 
         <div class="mail-and-donate">
             &copy;
-            <?= (new DateTime)->format('Y'); ?>
-            Screenshotgun.
+            Screenshotgun
+            <?= (new DateTime)->format('Y'); ?>.
             <a href="mailto:ismd@screenshotgun.com">Mail us</a>
             <!--or
             <a href="javascript:void(0)">buy a beer</a>.-->

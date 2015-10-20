@@ -614,7 +614,16 @@ body {
   }
 }
 .page-Index-index {
+  position: relative;
+  height: auto;
   background: #ea394a;
+}
+.page-Index-index .background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow: hidden;
 }
 .page-Index-index .background {
@@ -635,8 +644,14 @@ body {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
+.page-Index-index .page-content {
+  position: relative;
+  z-index: 5;
+}
 .page-Index-index .header,
 .page-Index-index .footer {
+  width: 1080px;
+  margin: 0 auto;
   font-weight: 300;
 }
 .page-Index-index .header {
@@ -651,43 +666,43 @@ body {
 .page-Index-index .footer .mail-and-donate {
   float: right;
 }
-.page-Index-index .page-content {
-  display: block;
-  width: 1080px;
-  height: 770px;
-  margin: 0 auto;
-  margin-top: -385px;
-  position: relative;
-  z-index: 5;
-  top: 50%;
-}
 .page-Index-index .rect {
-  border: 10px solid #fff;
-  margin: 0 auto;
+  position: relative;
   display: block;
   width: 840px;
   height: 548px;
+  margin: 0 auto;
+  border: 10px solid #fff;
 }
-.page-Index-index .logo {
-  background: url('../images/logo.png') 0 0 no-repeat;
+.page-Index-index .rect .logo {
+  position: absolute;
+  top: 106px;
+  left: 99px;
   display: block;
   width: 337px;
   height: 244px;
-  margin-bottom: 56px;
+  background: url('../images/logo.png') 0 0 no-repeat;
 }
-.page-Index-index .app {
-  background: url('../images/main-app.png') 0 0 no-repeat;
+.page-Index-index .rect .text-info {
+  position: absolute;
+  top: 408px;
+  left: 98px;
+  line-height: 1.1em;
+}
+.page-Index-index .rect .app {
+  position: absolute;
+  top: 90px;
+  right: 98px;
   display: block;
   width: 54px;
   height: 375px;
-  float: right;
-  margin-top: 90px;
-  margin-right: 98px;
+  background: url('../images/main-app.png') 0 0 no-repeat;
 }
-.page-Index-index .logo-left {
-  float: left;
-  padding: 100px;
-  padding-top: 106px;
+@media (max-width: 1150px) {
+  .page-Index-index .header,
+  .page-Index-index .footer {
+    width: 860px;
+  }
 }
 .page-Error-index {
   color: #000 !important;
