@@ -1,5 +1,5 @@
 <div class="header">
-    Скриншот загружен: <?= $this->date->format('d.m.Y'); ?>
+    Скриншот загружен <?= $this->getHelper('dateFormatter')->showPageFormat($this->date); ?>
 </div>
 
 <div class="image">
