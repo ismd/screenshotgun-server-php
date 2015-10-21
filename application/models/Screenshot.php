@@ -14,9 +14,8 @@ class Screenshot extends PsModel {
      */
     public function save($filepath) {
         $dt    = new DateTime;
-        $path  = APPLICATION_PATH . '/../public/files/';
+        $path  = APPLICATION_PATH . '../public/files/';
         $path .= $dt->format('Y/m/d');
-        $path  = realpath($path);
 
         $i = 0;
         do {
@@ -35,8 +34,8 @@ class Screenshot extends PsModel {
             ]);
         }
 
-        if (!is_dir($path)) {
-            mkdir($path, 0700, true);
+        if (!is_dir($path) && !mkdir($path, 0700, true)) {
+            throw new Exception("Can't create directory");
         }
 
         move_uploaded_file($filepath, $file);
