@@ -1,14 +1,14 @@
 @keyframes backgroundMove {
   0% {
-    left: -250%;
+    left: -400%;
   }
 
   10%, 50% {
-    left: -50%;
+    left: -100%;
   }
 
   60%, 100% {
-    left: 150%;
+    left: 200%;
   }
 }
 
@@ -30,8 +30,8 @@
   .background {
     position: absolute;
     top: 0;
-    left: -250%;
-    .size(200%, 100%);
+    left: -400%;
+    .size(300%, 100%);
     z-index: 1;
     background-color: #1744ca;
     animation: backgroundMove 10s linear infinite 5s;
@@ -102,6 +102,13 @@
     .header,
     .footer {
       width: 860px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .header,
+    .footer {
+      width: 800px;
     }
   }
 }
