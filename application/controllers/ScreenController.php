@@ -90,7 +90,14 @@ class ScreenController extends PsController {
             list($date, $filename) = $args;
         }
 
-        list($day, $month, $year) = explode('-', $date);
+        list($year, $month, $day) = explode('-', $date);
+
+        // Old links
+        if (4 == strlen($day)) {
+            $tmp = $day;
+            $day = $year;
+            $year = $tmp;
+        }
 
         return [
             'date' => new DateTime(implode('-', [$year, $month, $day])),

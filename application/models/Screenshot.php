@@ -39,7 +39,7 @@ class Screenshot extends PsModel {
         }
 
         move_uploaded_file($filepath, $file);
-        return '/' . $dt->format('d-m-Y') . '/' . $id;
+        return '/' . $dt->format('Y-m-d') . '/' . $id;
     }
 
     /**
