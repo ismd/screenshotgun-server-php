@@ -28,6 +28,12 @@ class PsView extends PsObject {
     protected $_json = [];
 
     /**
+     * Meta тэги
+     * @var mixed[]
+     */
+    protected $_meta = [];
+
+    /**
      * Имя шаблона
      * @var string
      */
@@ -135,6 +141,14 @@ class PsView extends PsObject {
     }
 
     /**
+     * Передача meta тэгов в шаблон
+     * @param mixed[] $value
+     */
+    public function meta($value) {
+        $this->_meta = (array)$value;
+    }
+
+    /**
      * Устанавливает главный шаблон для вывода
      * @param string $layout
      */
@@ -147,7 +161,7 @@ class PsView extends PsObject {
      * @param $name Название хелпера
      * @return PsViewHelper
      */
-    protected function getHelper($name) {
+    public function getHelper($name) {
         $name = ucfirst($name) . 'ViewHelper';
         return new $name;
     }

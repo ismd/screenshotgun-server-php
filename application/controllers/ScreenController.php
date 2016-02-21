@@ -69,6 +69,11 @@ class ScreenController extends PsController {
 
         $this->view->date = $args['date'];
         $this->view->fileUrl = $filepath;
+        $this->view->meta([
+            'og:site_name' => 'Screenshotgun',
+            'og:description' => 'Скриншот загружен ' . $this->view->getHelper('dateFormatter')->showPageFormat($this->view->date),
+            'og:image' => (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off' ? 'http://' : 'https://') . $_SERVER['SERVER_NAME'] . $filepath,
+        ]);
     }
 
     /**

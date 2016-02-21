@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=900" />
     <title>Screenshotgun</title>
 
+    <? foreach ($this->_meta as $property => $content): ?>
+        <meta name="<?= $property; ?>"
+              property="<?= $property; ?>"
+              content="<?= $content; ?>" />
+    <? endforeach; ?>
+
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
 
