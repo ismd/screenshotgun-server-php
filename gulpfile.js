@@ -17,14 +17,14 @@ var LessPluginCleanCSS = require('less-plugin-clean-css'),
 // Less
 gulp.task('less', function () {
     var files = [
-        './bower_components/html5-boilerplate/dist/css/main.css',
-        './bower_components/html5-boilerplate/dist/css/normalize.css',
+        './node_modules/html5-boilerplate/dist/css/main.css',
+        './node_modules/html5-boilerplate/dist/css/normalize.css',
         './less/style.less'
     ];
 
     return gulp.src(files)
         .pipe(less({
-            plugins: 'production' == environment ? [autoprefix, cleancss] : [autoprefix]
+            plugins: 'production' === environment ? [autoprefix, cleancss] : [autoprefix]
         }))
         .pipe(concat('style.css'))
         .pipe(gulp.dest('./public/css'))
@@ -33,14 +33,14 @@ gulp.task('less', function () {
 // JavaScript
 gulp.task('js', function() {
     var files = [
-        'bower_components/jquery/dist/jquery.min.js',
+        'node_modules/jquery/dist/jquery.min.js',
         './js/**/*.js'
     ];
 
     var stream = gulp.src(files)
         .pipe(concat('app.js'));
 
-    if ('production' == environment) {
+    if ('production' === environment) {
         stream = stream.pipe(uglify());
     }
 
@@ -55,7 +55,7 @@ gulp.task('watch', function() {
 
 var tasks = ['less', 'js'];
 
-if ('development' == environment) {
+if ('development' === environment) {
     tasks.push('watch');
 }
 
