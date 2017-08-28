@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=900" />
     <title>Screenshotgun</title>
 
-    <? foreach ($this->_meta as $property => $content): ?>
+    <?php foreach ($this->_meta as $property => $content): ?>
         <meta name="<?= $property; ?>"
               property="<?= $property; ?>"
               content="<?= $content; ?>" />
-    <? endforeach; ?>
+    <?php endforeach; ?>
 
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
@@ -18,6 +18,12 @@
 </head>
 
 <body class="page page-<?= $this->_registry->router->getController(); ?>-<?= $this->_registry->router->getAction(); ?>">
-    <? $this->content(); ?>
+    <?php $this->content(); ?>
+
+    <?php
+    if (is_readable(APPLICATION_PATH . 'views/_analytics.html')) {
+        require APPLICATION_PATH . 'views/_analytics.html';
+    }
+    ?>
 </body>
 </html>
