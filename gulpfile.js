@@ -27,7 +27,7 @@ gulp.task('less', function () {
             plugins: 'production' === environment ? [autoprefix, cleancss] : [autoprefix]
         }))
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('./public/css'))
+        .pipe(gulp.dest('./public/css'));
 });
 
 // JavaScript
@@ -49,8 +49,8 @@ gulp.task('js', function() {
 
 // Watch
 gulp.task('watch', function() {
-    gulp.watch('./less/**/*.less', ['less']);
-    gulp.watch('./js/**/*.js', ['js']);
+    gulp.watch('./less/**/*.less', gulp.parallel('less'));
+    gulp.watch('./js/**/*.js', gulp.parallel('js'));
 });
 
 var tasks = ['less', 'js'];
@@ -59,4 +59,4 @@ if ('development' === environment) {
     tasks.push('watch');
 }
 
-gulp.task('default', tasks);
+gulp.task('default', gulp.series(gulp.parallel(tasks)));
