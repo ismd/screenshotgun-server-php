@@ -1,6 +1,6 @@
 {
   "name": "screenshotgun-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Open screenshoter",
   "repository": {
     "type": "git",
@@ -15,16 +15,16 @@
   },
   "homepage": "https://github.com/ismd/screenshotgun-server#readme",
   "dependencies": {
-    "gulp": "^4.0.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-less": "^4.0.0",
-    "gulp-uglify": "^1.4.2",
-    "html5-boilerplate": "^6.0.0",
-    "jquery": "^3.2.1",
-    "less-plugin-autoprefix": "^1.5.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^4.0.1",
+    "gulp-uglify": "^3.0.2",
+    "html5-boilerplate": "^8.0.0",
+    "jquery": "^3.5.1",
+    "less-plugin-autoprefix": "^2.0.0",
     "less-plugin-clean-css": "^1.5.1"
   },
   "scripts": {
-    "build": "node_modules/.bin/gulp"
+    "build": "gulp"
   }
 }
