@@ -1,0 +1,9 @@
+FROM nginx
+
+ARG domain=screenshotgun.com
+ENV DOMAIN=$domain
+
+WORKDIR /app
+COPY . /app
+
+RUN /app/deploy/scripts/prepare.sh

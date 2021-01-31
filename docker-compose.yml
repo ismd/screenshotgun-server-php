@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - php
+  php:
+    build:
+      context: .
+      dockerfile: deploy/docker/Dockerfile_php
+    ports:
+      - "9000:9000"
